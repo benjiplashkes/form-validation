@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/scripts.js" defer></script>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <header>
+            <div class="hero">
+                <img src="./images/avatar.png" alt="Avatar of Benji Plashkes" width="150">
+                <h1>Benji Plashkes</h1>
+            </div>
+        </header>
+        <main>
+            <div class="tagline">
+                <p>
+                    This is not a real service!
+                </p>
+                <p>
+                    You know you need something like this in your life.
+                    Your very own fake service.
+                    Sign up now!
+                    <span>You know you want to...</span>
+                </p>
+                <div class="form-container">
+                    <form action="">
+                        <div>Let's do this!</div>
+    
+                        <div class="form-wrapper">
+                            <p>required fields are marked with a *</p>
+                            <div>
+                                <label for="firstname">First Name <span aria-required="true">*</span></label>
+                                <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+                            </div>
+                            <div>
+                                <label for="lastname">Last Name <span aria-required="true">*</span></label>
+                                <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
+                            </div>
+                            <div>
+                                <label for="email">Email <span aria-required="true">*</span></label>
+                                <input type="email" name="email" id="email" placeholder="enter your email address" required>
+                            </div>
+                            <div>
+                                <label for="tel"></label>
+                                <input type="tel" name="tel" id="tel" placeholder="enter your phone number eg. XXX-XXXXXXX">
+                            </div>
+                            <div>
+                                <label for="password">Password <span aria-required="true">*</span></label>
+                                <input type="password" name="password" id="password" required>
+                            </div>
+                            <div>
+                                <label for="password">Confirm Password <span aria-required="true">*</span></label>
+                                <input type="password" name="password-confirm" id="password-confirm" required placeholder="Confirm your password">
+                            </div>
+                            <div>
+                                <button type="submit">Create Account</button>
+                            </div>
+                            <div class="sign-in">
+                                <p>already have an account? <a href="#">log in</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+        <footer>
+            <p class="credit">Photo by <a href="https://unsplash.com/@yileijerrybao?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Yilei (Jerry) Bao</a> on <a href="https://unsplash.com/photos/a-view-of-a-building-through-a-glass-window-yUmjIbejE-g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+            </p>
+        </footer>
+</body>
+</html>
