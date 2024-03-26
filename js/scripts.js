@@ -1,58 +1,44 @@
-const form = document.querySelector('#createAccountForm')
-const inputs = form.querySelectorAll('input')
+const inputs = document.querySelectorAll("form input");
 
-const validateForm = (e)=>{
-    //error displaying
-    const errorDiv = document.querySelector('div.error')
-    const error = (text, element)=>{
-        console.log(text)
-        console.log(element.parentElement)
-        const div = document.createElement('div')
-        div.classList.add('error')
-        div.textContent = text
-        element.parentElement.appendChild(div)
-        element.classList.add('error')
-    }
-    
-    // Check password Validation
-    const checkPassword = ()=>{
-        const pass = form.querySelector("#password")
-        const passConfirm = form.querySelector("#password-confirm")
-        
-        errorDiv?.remove() // reset error state
-        
-        if(!pass.value) return  false
-        if(!passConfirm.value) return  false
-        if(pass.value !== passConfirm.value) {
-            error("passwords do not match", passConfirm)
-            return false
-        }
-             
-        if(pass.value === passConfirm.value){
-            pass.classList.add('valid')
-            passConfirm.classList.add('valid')
-            return true
-        }
-        return 
-    }
-    const validateFields = () =>{
-        return true
-    }
-    const styleValidFields = ()=>{
-        const input = e.target
-      
-            console.log(input.parentElement)
-            if(input.validity.valid && !input.indeterminate) input.parentElement.classList.add('valid')
-        
-    }
-    styleValidFields()
-    valid = checkPassword() ? validateFields() : false
-    return valid 
-}
-form.addEventListener("change", validateForm)
-form.addEventListener("submit", (e)=>{
-    e.preventDefault()
+//style inputs by validation
 
-    if(validateForm())form.submit()
-    return
-})
+inputs.forEach((input) => {
+  addEventListener("change", (e) => {
+    input = e.target;
+
+    const styleValidatedInputs = () => {
+      input.parentElement.classList.remove("valid");
+      input.parentElement.classList.remove("invalid");
+      if (input.validity.valid) {
+        if (input.id === "passwordconfirm") return;
+        return input.parentElement.classList.add("valid");
+      }
+      return input.parentElement.classList.add("invalid");
+    };
+    const validatePassword = () => {
+      const passwordFieldsDiv = document.querySelector("div.password-fields");
+      document.querySelector('div.error')?.remove()
+      if (input.id !== "password-confirm") return;
+      if (password.value === passwordConfirm.value) {
+        password.parentElement.classList.add("valid");
+        passwordConfirm.parentElement.classList.add("valid");
+        return;
+      }
+      if (password.value !== passwordConfirm.value) {
+        password.parentElement.classList.add("invalid");
+        passwordConfirm.parentElement.classList.add("invalid");
+        const div = document.createElement("div");
+
+        div.classList.add("error");
+        div.textContent = `passwords do not match`;
+        passwordFieldsDiv.appendChild(div);
+        passwordConfirm.value = ""
+        password.focus()
+      }
+    };
+    styleValidatedInputs();
+    validatePassword();
+  });
+});
+const password = document.getElementById("password");
+const passwordConfirm = document.getElementById("password-confirm");
