@@ -31,7 +31,7 @@ body{
 }
 header{
     padding: 1rem;
-    height: 90vh;
+    height: 50vh;
     min-width: 50%;
     width: 700px;
     background-color: rgba(253, 132, 98, 0.376);
@@ -111,25 +111,26 @@ form p{
 
 input:invalid:not(:placeholder-shown),
 input.error{
-    border: 1px solid red;
+    border: 1px solid rgb(249, 170, 170);
 }
 .valid,
 input:valid{
     position: relative;
     padding-right: 1.5rem;
-    border: 1px solid green;
+    border: 1px solid rgb(171, 248, 171);
 }
 
 div.error {
     margin-top: 0.125rem;
-    color: red;
+    color: rgb(122, 23, 23);
 }
 .input-wrapper {
     display: flex;
     padding-right: 1rem;
 }
 input:hover, input:focus{
-    outline: 1px solid rgb(91, 91, 145);
+    outline: 1px solid rgb(153, 153, 241);
+    box-shadow: var(--box-shadow);
 }
 .valid::after{
     position: absolute;
