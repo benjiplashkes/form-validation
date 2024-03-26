@@ -1,42 +1,37 @@
-const inputs = document.querySelectorAll('input')
-const form = document.querySelector('form')
-const submit = document.querySelector('[type="submit"]')
-const firstname = document.querySelector('#firstname')
-const lastname = document.querySelector('#lastname')
-const email = document.querySelector('#email')
-const phone = document.querySelector('#tel')
-const password = document.querySelector('#password')
-const passwordConfirm = document.querySelector('#password-confirm')
+const form = document.querySelector('#createAccountForm')
+const inputs = form.querySelectorAll('input')
 
+const validateForm = (e)=>{
+    // Check password Validation
+    const checkPassword = ()=>{
+        const pass = form.querySelector("#password")
+        const passConfirm = form.querySelector("#password-confirm")
+        const error = (text, element)=>{
+            console.log(text)
+            console.log(element.parentElement)
+            const div = document.createElement('div')
+            div.classList.add('error')
+            div.textContent = text
+            element.parentElement.appendChild(div)
+            element.classList.add('error')
+            return false
+        }
 
-passwordConfirm.addEventListener("change", (e)=>{
-    let passwordValue = password.value
-    let passwordConfirmValue = passwordConfirm.value
-    let errorDiv = document.createElement('div')
-    errorDiv.classList.add('error')
-    if(!passwordValue){
-        password.classList.add("error")
-        errorDiv.textContent = "Please fill in your password"
-        password.parentElement.appendChild(errorDiv)  
-        return  
+        if(!pass.value) return
+        if(!passConfirm.value) return
+        if(pass.value !== passConfirm.value) return error("passwords do not match", passConfirm)
+        
+        if(pass.value === passConfirm.value){
+            pass.classList.add('valid')
+            passConfirm.classList.add('valid')
+            return true
+        }
     }
-    if(!passwordConfirmValue){
-        passwordConfirm.classList.add("error")
-        errorDiv.textContent = "Please fill in your password"
-        passwordConfirm.parentElement.appendChild(errorDiv)    
-        return
-    }
-    if(passwordValue !== passwordConfirmValue){
-        e.preventDefault()
-        passwordConfirm.classList.add('error')
-        errorDiv.textContent = "Passwords do not match"
-        passwordConfirm.parentElement.appendChild(errorDiv)
-        password.focus()
-    }
-    if(passwordConfirmValue === passwordValue){
-        password.classList.remove('error')
-        passwordConfirm.classList.remove('error')
-        return
-    }
+    return checkPassword()
+}
+form.addEventListener("change", validateForm)
+form.addEventListener("submit", (e)=>{
+    e.preventDefault()
+    if(validateForm()) form.submit()
+    return
 })
-
