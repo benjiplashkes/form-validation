@@ -100,31 +100,14 @@ form p{
     padding: 0.25rem;
     border: 1px solid #c7cedc;
     border-radius: 4px; 
+    appearance: none;
 }
-.form-container input::placeholder{
-    text-transform: capitalize;
+form button {
+    appearance: none;
+    -webkit-appearance: none;
 }
 
-.form-wrapper input:focus {
-    outline: 1px dotted rgb(135, 135, 250);
-}
-.form-wrapper input:valid{
-    border: 2px solid rgb(169, 249, 168);
-
-}
-.form-wrapper :not(:placeholder-shown) input:invalid,
-.form-wrapper .error {
-    border: 2px solid rgb(249, 168, 168);
-}
-[type="submit"]{
-   padding: 1rem;
-   font-size: 1.125rem;
-   background-color:rgb(174, 247, 247);
-   border-radius: 8px;
-   transition: all 150ms ease-in;
-}
-[type="submit"]:hover,
-[type="submit"]:focus {
-    background-color:rgb(162, 231, 231);
-    outline: 1px solid black;
+input:invalid:not(:placeholder-shown),
+input.error{
+    border: 1px solid red;
 }
