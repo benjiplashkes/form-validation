@@ -27,12 +27,13 @@
                     Sign up now!
                     <span>You know you want to...</span>
                 </p>
+            </div>
                 <div class="form-container">
                     <form action="">
-                        <div>Let's do this!</div>
+                        <p class="form-tagline">Let's do this!</p>
     
+                        <p>required fields are marked with a *</p>
                         <div class="form-wrapper">
-                            <p>required fields are marked with a *</p>
                             <div>
                                 <label for="firstname">First Name <span aria-required="true">*</span></label>
                                 <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
@@ -46,20 +47,21 @@
                                 <input type="email" name="email" id="email" placeholder="enter your email address" required>
                             </div>
                             <div>
-                                <label for="tel"></label>
-                                <input type="tel" name="tel" id="tel" placeholder="enter your phone number eg. XXX-XXXXXXX">
+                                <label for="tel">Phone number:</label>
+                                <input type="tel" minlength="9" name="tel" id="tel" placeholder="enter your phone number eg. XXX-XXXXXXX">
                             </div>
                             <div>
                                 <label for="password">Password <span aria-required="true">*</span></label>
-                                <input type="password" name="password" id="password" required>
+                                <input type="password" name="password" id="password" class="error" placeholder="Please enter your password" required>
                             </div>
                             <div>
-                                <label for="password">Confirm Password <span aria-required="true">*</span></label>
-                                <input type="password" name="password-confirm" id="password-confirm" required placeholder="Confirm your password">
+                                <label for="password-confirm">Confirm Password <span aria-required="true">*</span></label>
+                                <input type="password" name="password-confirm" id="password-confirm" class="error" required placeholder="Confirm your password">
                             </div>
-                            <div>
-                                <button type="submit">Create Account</button>
-                            </div>
+                            
+                        </div>
+                        <div class="submit-wrapper">                            
+                            <button type="submit">Create Account</button>
                             <div class="sign-in">
                                 <p>already have an account? <a href="#">log in</a></p>
                             </div>
